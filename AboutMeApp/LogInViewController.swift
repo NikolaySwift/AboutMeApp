@@ -20,14 +20,50 @@ final class LogInViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = userNameTF.text
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    @IBAction func forgotUserNameButtonTapped() {
+        showAlert(
+            WithTitle: "Oops!",
+            AndMessage: "Your name is \(correctUserName)"
+        )
+    }
+    
+    @IBAction func forgotPasswordButtonTapped() {
+        showAlert(
+            WithTitle: "Oops!",
+            AndMessage: "Your password is \(correctPassword)"
+        )
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTF.text = ""
+        passwordTF.text = ""
+    }
+    
+}
+
+extension LogInViewController {
+    private func showAlert(WithTitle title: String, AndMessage message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
+
+extension LogInViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let welcomeVC = segue.destination as? WelcomeViewController
+        welcomeVC?.userName = userNameTF.text
     }
     
     override func shouldPerformSegue(
@@ -55,34 +91,5 @@ final class LogInViewController: UIViewController {
         }
         
         return true
-    }
-
-    @IBAction func forgotUserNameButtonTapped() {
-        showAlert(
-            WithTitle: "Oops!",
-            AndMessage: "Your name is \(correctUserName)"
-        )
-    }
-    
-    @IBAction func forgotPasswordButtonTapped() {
-        showAlert(
-            WithTitle: "Oops!",
-            AndMessage: "Your password is \(correctPassword)"
-        )
-    }
-    
-}
-
-extension LogInViewController {
-    private func showAlert(WithTitle title: String, AndMessage message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
 }
