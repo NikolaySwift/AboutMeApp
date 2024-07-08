@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PDR-p3-yn4">
-                                <rect key="frame" x="32" y="189" width="256" height="190.5"/>
+                                <rect key="frame" x="32" y="159" width="256" height="190.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vCH-3Z-Rmj">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="88"/>
@@ -71,7 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PDR-p3-yn4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bbN-AF-l6a"/>
+                            <constraint firstItem="PDR-p3-yn4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-40" id="bbN-AF-l6a"/>
                             <constraint firstItem="PDR-p3-yn4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="k4y-nj-NkP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PDR-p3-yn4" secondAttribute="trailing" constant="32" id="uau-TT-AgH"/>
                         </constraints>
@@ -93,8 +93,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="24h-Pc-WqC">
-                                <rect key="frame" x="65.5" y="60" width="189" height="92"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="24h-Pc-WqC">
+                                <rect key="frame" x="65.5" y="60" width="189" height="94.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYL-qh-eLd">
                                         <rect key="frame" x="0.0" y="0.0" width="189" height="33.5"/>
@@ -103,8 +103,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-Gw-R8b">
-                                        <rect key="frame" x="74" y="71.5" width="41.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="54.5" y="53.5" width="80" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -129,7 +129,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="HandWaveLabel" destination="RWO-Gw-R8b" id="Tbk-jh-ogQ"/>
+                        <outlet property="handWaveLabel" destination="RWO-Gw-R8b" id="Tbk-jh-ogQ"/>
                         <outlet property="welcomeLabel" destination="RYL-qh-eLd" id="aNg-bI-54k"/>
                     </connections>
                 </viewController>

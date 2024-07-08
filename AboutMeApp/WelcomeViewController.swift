@@ -10,11 +10,15 @@ import UIKit
 final class WelcomeViewController: UIViewController {
 
     @IBOutlet var welcomeLabel: UILabel!
-    @IBOutlet var HandWaveLabel: UILabel!
+    @IBOutlet var handWaveLabel: UILabel!
+    
+    var userName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        handWaveLabel.text = "👋"
+        welcomeLabel.text = "Welcome, \(userName ?? "")!"
     }
     
     @IBAction func logoutButtonTapped() {
