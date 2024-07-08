@@ -7,18 +7,13 @@
 
 import UIKit
 
-final class LogInViewController: UIViewController {
+final class LoginViewController: UIViewController {
 
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     private let correctUserName = "User"
     private let correctPassword = "1234"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -46,7 +41,7 @@ final class LogInViewController: UIViewController {
     
 }
 
-extension LogInViewController {
+extension LoginViewController {
     private func showAlert(WithTitle title: String, AndMessage message: String) {
         let alert = UIAlertController(
             title: title,
@@ -60,7 +55,7 @@ extension LogInViewController {
     }
 }
 
-extension LogInViewController {
+extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
         welcomeVC?.userName = userNameTF.text
