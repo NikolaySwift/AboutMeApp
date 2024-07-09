@@ -21,16 +21,16 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotUserNameButtonTapped() {
-        showAlert(
-            WithTitle: "Oops!",
-            AndMessage: "Your name is \(correctUserName)"
+        showTipAlert(
+            withTitle: "Oops!",
+            andMessage: "Your name is \(correctUserName)"
         )
     }
     
     @IBAction func forgotPasswordButtonTapped() {
-        showAlert(
-            WithTitle: "Oops!",
-            AndMessage: "Your password is \(correctPassword)"
+        showTipAlert(
+            withTitle: "Oops!",
+            andMessage: "Your password is \(correctPassword)"
         )
     }
     
@@ -41,8 +41,9 @@ final class LoginViewController: UIViewController {
     
 }
 
+// MARK: - Alert Controller
 extension LoginViewController {
-    private func showAlert(WithTitle title: String, AndMessage message: String) {
+    private func showTipAlert(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -53,8 +54,25 @@ extension LoginViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    private func showLoginAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.userNameTF.text = ""
+            self.passwordTF.text = ""
+            self.userNameTF.becomeFirstResponder()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
+// MARK: - Segue Life Cycle
 extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
@@ -65,22 +83,10 @@ extension LoginViewController {
         withIdentifier identifier: String,
         sender: Any?
     ) -> Bool {
-        guard let userName = userNameTF.text, let password = passwordTF.text else {
-            return false
-        }
-        
-        guard !userName.isEmpty, !password.isEmpty else {
-            showAlert(
-                WithTitle: "Invalid login or password",
-                AndMessage: "please enter correct login and password"
-            )
-            return false
-        }
-
-        guard userName == correctUserName, password == correctPassword else {
-            showAlert(
-                WithTitle: "Invalid login or password",
-                AndMessage: "please enter correct login and password"
+        guard userNameTF.text == correctUserName, passwordTF.text == correctPassword else {
+            showLoginAlert(
+                withTitle: "Invalid login or password",
+                andMessage: "please enter correct login and password"
             )
             return false
         }
