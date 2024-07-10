@@ -20,15 +20,13 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func forgotUserNameButtonTapped() {
-        showTipAlert(
+    @IBAction func tipButtonTapped(_ sender: UIButton) {
+        sender.tag == 0
+        ? showAlert(
             withTitle: "Oops!",
             andMessage: "Your name is \(correctUserName)"
         )
-    }
-    
-    @IBAction func forgotPasswordButtonTapped() {
-        showTipAlert(
+        : showAlert(
             withTitle: "Oops!",
             andMessage: "Your password is \(correctPassword)"
         )
@@ -43,19 +41,11 @@ final class LoginViewController: UIViewController {
 
 // MARK: - Alert Controller
 extension LoginViewController {
-    private func showTipAlert(withTitle title: String, andMessage message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
-    private func showLoginAlert(withTitle title: String, andMessage message: String) {
+    private func showAlert(
+        withTitle title: String,
+        andMessage message: String,
+        completion: (() -> Void)? = nil
+    ) {
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -63,9 +53,7 @@ extension LoginViewController {
         )
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.userNameTF.text = ""
-            self.passwordTF.text = ""
-            self.userNameTF.becomeFirstResponder()
+            completion?()
         }
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -75,8 +63,8 @@ extension LoginViewController {
 // MARK: - Segue Life Cycle
 extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = userNameTF.text
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.userName = userNameTF.text
     }
     
     override func shouldPerformSegue(
@@ -84,10 +72,11 @@ extension LoginViewController {
         sender: Any?
     ) -> Bool {
         guard userNameTF.text == correctUserName, passwordTF.text == correctPassword else {
-            showLoginAlert(
+            showAlert(
                 withTitle: "Invalid login or password",
-                andMessage: "please enter correct login and password"
-            )
+                andMessage: "please enter correct login and password") {
+                    self.passwordTF.text = ""
+                }
             return false
         }
         

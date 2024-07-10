@@ -51,16 +51,16 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot User Name?"/>
                                                 <connections>
-                                                    <action selector="forgotUserNameButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFd-hk-8jb"/>
+                                                    <action selector="tipButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJ2-pX-ZfP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-4Q-v4p">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-4Q-v4p">
                                                 <rect key="frame" x="147" y="0.0" width="109" height="28"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot Password?"/>
                                                 <connections>
-                                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ba-9Q-hJX"/>
+                                                    <action selector="tipButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gcd-Xw-A2u"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -102,8 +102,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-Gw-R8b">
-                                        <rect key="frame" x="54.5" y="53.5" width="80" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-Gw-R8b">
+                                        <rect key="frame" x="75.5" y="53.5" width="38" height="41"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -129,7 +129,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="handWaveLabel" destination="RWO-Gw-R8b" id="Tbk-jh-ogQ"/>
                         <outlet property="welcomeLabel" destination="RYL-qh-eLd" id="aNg-bI-54k"/>
                     </connections>
                 </viewController>
