@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DBBF6892C4191EB003390F6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBF6882C4191EB003390F6 /* TabBarController.swift */; };
 		8DBD5F092C3ECA6A00F796B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD5F082C3ECA6A00F796B1 /* User.swift */; };
+		8DBFB6612C4119F5008BAB49 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBFB6602C4119F5008BAB49 /* AboutMeViewController.swift */; };
+		8DBFB6632C411A11008BAB49 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBFB6622C411A11008BAB49 /* DetailsViewController.swift */; };
 		8DF01A282C3C082F0054F39C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF01A272C3C082F0054F39C /* AppDelegate.swift */; };
 		8DF01A2A2C3C082F0054F39C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF01A292C3C082F0054F39C /* SceneDelegate.swift */; };
 		8DF01A2C2C3C082F0054F39C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF01A2B2C3C082F0054F39C /* LoginViewController.swift */; };
@@ -18,7 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DBBF6882C4191EB003390F6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8DBD5F082C3ECA6A00F796B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DBFB6602C4119F5008BAB49 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		8DBFB6622C411A11008BAB49 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8DF01A242C3C082F0054F39C /* AboutMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF01A272C3C082F0054F39C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DF01A292C3C082F0054F39C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 			children = (
 				8DF01A2B2C3C082F0054F39C /* LoginViewController.swift */,
 				8DF01A3B2C3C135E0054F39C /* WelcomeViewController.swift */,
+				8DBFB6602C4119F5008BAB49 /* AboutMeViewController.swift */,
+				8DBFB6622C411A11008BAB49 /* DetailsViewController.swift */,
+				8DBBF6882C4191EB003390F6 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,10 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBBF6892C4191EB003390F6 /* TabBarController.swift in Sources */,
 				8DF01A2C2C3C082F0054F39C /* LoginViewController.swift in Sources */,
 				8DF01A3C2C3C135E0054F39C /* WelcomeViewController.swift in Sources */,
 				8DF01A282C3C082F0054F39C /* AppDelegate.swift in Sources */,
 				8DBD5F092C3ECA6A00F796B1 /* User.swift in Sources */,
+				8DBFB6632C411A11008BAB49 /* DetailsViewController.swift in Sources */,
+				8DBFB6612C4119F5008BAB49 /* AboutMeViewController.swift in Sources */,
 				8DF01A2A2C3C082F0054F39C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
