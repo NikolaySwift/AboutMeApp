@@ -19,6 +19,7 @@ struct User {
                 surname: "Дворников",
                 age: 38,
                 hometown: "Москва",
+                photo: "myPhoto",
                 details: [
                     Detail(
                         title: "Навыки",
@@ -46,6 +47,7 @@ struct Person {
     let surname: String
     let age: Int
     let hometown: String
+    let photo: String?
     let details: [Detail]
 }
 
