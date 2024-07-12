@@ -12,8 +12,14 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let correctUserName = "User"
-    private let correctPassword = "1234"
+    private let user = User.getUser()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        userNameTF.text = user.userName
+        passwordTF.text = user.password
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -24,11 +30,11 @@ final class LoginViewController: UIViewController {
         sender.tag == 0
         ? showAlert(
             withTitle: "Oops!",
-            andMessage: "Your name is \(correctUserName)"
+            andMessage: "Your name is \(user.userName)"
         )
         : showAlert(
             withTitle: "Oops!",
-            andMessage: "Your password is \(correctPassword)"
+            andMessage: "Your password is \(user.password)"
         )
     }
     
@@ -63,15 +69,28 @@ extension LoginViewController {
 // MARK: - Segue Life Cycle
 extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userNameTF.text
+        guard let tabBarVC = segue.destination as? TabBarController else { return }
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        
+        tabBarVC.personName = user.person.name
+        
+        viewControllers.forEach({ viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userName = user.userName
+                welcomeVC.personName = user.person.name
+            } else if let navigationVC = viewController as? UINavigationController {
+                if let aboutMeVC = navigationVC.topViewController as? AboutMeViewController {
+                    aboutMeVC.person = user.person
+                }
+            }
+        })
     }
     
     override func shouldPerformSegue(
         withIdentifier identifier: String,
         sender: Any?
     ) -> Bool {
-        guard userNameTF.text == correctUserName, passwordTF.text == correctPassword else {
+        guard userNameTF.text == user.userName, passwordTF.text == user.password else {
             showAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "please enter correct login and password") {
